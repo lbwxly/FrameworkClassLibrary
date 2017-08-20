@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>fcl.extension</id>
+    <version>$version$</version>
+    <title>.NET Framework Class Library Extension</title>
+    <authors>self.refactoring</authors>
+    <owners>self.refactoring</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Reusable extension for .NET Framework Class Library</description>
+    <releaseNotes>Initial Testing Publish.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>.NET Framework FCL Extension</tags>
+  </metadata>
+</package>
