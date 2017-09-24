@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FCL.Reflection
+namespace FCL.Extentsion.Reflection
 {
     public static class AssemblyExtension
     {

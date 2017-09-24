@@ -7,10 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCL.Extension", "FCL.Extens
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		DawnDebug|Any CPU = DawnDebug|Any CPU
+		DawnRelease|Any CPU = DawnRelease|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.DawnDebug|Any CPU.ActiveCfg = DawnDebug|Any CPU
+		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.DawnDebug|Any CPU.Build.0 = DawnDebug|Any CPU
+		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.DawnRelease|Any CPU.ActiveCfg = DawnRelease|Any CPU
+		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.DawnRelease|Any CPU.Build.0 = DawnRelease|Any CPU
 		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
