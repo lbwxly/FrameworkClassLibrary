@@ -32,11 +32,15 @@ namespace FCL.Compression
                 var outputStream = new MemoryStream();
                 var gzipStream = new DeflateStream(inputStream, CompressionMode.Decompress, CompressionLevel.BestSpeed);
                 int blockSize = 10 * 1024;
-                while (gzipStream.CanRead)
+                int readSize = 1;
+                while (readSize > 0)
                 {
                     byte[] buffer = new byte[blockSize];
-                    int readSize = gzipStream.Read(buffer, 0, blockSize);
-                    outputStream.Write(buffer, 0, readSize);
+                    readSize = gzipStream.Read(buffer, 0, blockSize);
+                    if (readSize > 0)
+                    {
+                        outputStream.Write(buffer, 0, readSize);
+                    }
                 }
 
                 outputStream.Flush();
