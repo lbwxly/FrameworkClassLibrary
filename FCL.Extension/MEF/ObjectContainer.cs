@@ -32,12 +32,12 @@ namespace FCL.Extentsion.MEF
         /// <summary>
         /// Default Initialization method, the working directory of the executing assembly will be set the export catelog source.
         /// </summary>
-        public static void Initialize()
+        public static void Initialize(bool isThreadSafe = true)
         {
             lock (_guard)
             {
                 EnsureInitializable();
-                _container = new CompositionContainer(new DirectoryCatalog(AssemblyExtension.GetWorkingDirectory()), true);
+                _container = new CompositionContainer(new DirectoryCatalog(AssemblyExtension.GetWorkingDirectory()), isThreadSafe);
             }
         }
 
