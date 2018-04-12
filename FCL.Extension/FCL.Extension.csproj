@@ -71,9 +71,11 @@
     <Compile Include="Compression\GZipCompressor.cs" />
     <Compile Include="Misc\AppSettingReader.cs" />
     <Compile Include="Misc\MiscUtil.cs" />
+    <Compile Include="Reflection\ReflectionHelper.cs" />
     <Compile Include="System\DateTimeExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\AssemblyExtension.cs" />
+    <Compile Include="System\NullableExtension.cs" />
     <Compile Include="WebSockets\HttpContextExtension.cs" />
     <Compile Include="WebSockets\WebSocketHandler.cs" />
   </ItemGroup>
