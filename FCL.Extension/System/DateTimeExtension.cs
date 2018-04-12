@@ -12,5 +12,10 @@ namespace FCL.System
         {
             return (long)(datetime - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
         }
+
+        public static DateTime ToDateTime(this long timeStamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(timeStamp);
+        }
     }
 }

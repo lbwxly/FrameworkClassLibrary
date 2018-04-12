@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using FCL.System;
 
 namespace FCL.Misc
 {
@@ -53,6 +55,28 @@ namespace FCL.Misc
             }
 
             return Regex.IsMatch(phoneNumber, pattern);
+        }
+
+        public static string Hash256(string data)
+        {
+            byte[] buffer = Encoding.Default.GetBytes(data);
+            buffer = SHA256.Create().ComputeHash(buffer);
+
+            return buffer.HexRepresentation();
+        }
+
+        public static string MD5Value(string data)
+        {
+            byte[] buffer = Encoding.Default.GetBytes(data);
+            buffer = MD5.Create().ComputeHash(buffer);
+
+            return buffer.HexRepresentation();
+        }
+
+        public static string Base64(string data)
+        {
+            byte[] buffer = Encoding.Default.GetBytes(data);
+            return Convert.ToBase64String(buffer);
         }
     }
 }
