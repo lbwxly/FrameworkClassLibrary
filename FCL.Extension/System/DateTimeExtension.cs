@@ -32,5 +32,10 @@ namespace FCL.System
         {
             return new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
         }
+
+        public static DateTime ToDateTime(this long timeStamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(timeStamp);
+        }
     }
 }

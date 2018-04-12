@@ -71,6 +71,7 @@
     <Compile Include="Compression\GZipCompressor.cs" />
     <Compile Include="Misc\AppSettingReader.cs" />
     <Compile Include="Misc\MiscUtil.cs" />
+    <Compile Include="System\BytesExtension.cs" />
     <Compile Include="Reflection\ReflectionHelper.cs" />
     <Compile Include="System\DateTimeExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
