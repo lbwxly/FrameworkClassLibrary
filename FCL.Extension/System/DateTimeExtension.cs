@@ -10,7 +10,12 @@ namespace FCL.System
     {
         public static long ToUnixTimestamp(this DateTime datetime)
         {
-            return (long)(datetime - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
+            return (long)(datetime - UTCStartingDate).TotalMilliseconds;
+        }
+
+        public static long ToUnixTimestampFromLocalTime(this DateTime datetime)
+        {
+            return (long)(datetime - LocalStartingDate).TotalMilliseconds;
         }
 
         public static DateTime EndOfTheDay(this DateTime datetime)
@@ -35,7 +40,28 @@ namespace FCL.System
 
         public static DateTime ToDateTime(this long timeStamp)
         {
-            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(timeStamp);
+            return UTCStartingDate.AddMilliseconds(timeStamp);
+        }
+
+        public static DateTime ToLocalDateTime(this long timeStamp)
+        {
+            return LocalStartingDate.AddMilliseconds(timeStamp);
+        }
+
+        private static DateTime UTCStartingDate
+        {
+            get
+            {
+                return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            }
+        }
+
+        public static DateTime LocalStartingDate
+        {
+            get
+            {
+                return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
+            }
         }
     }
 }
