@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCL.Extension", "FCL.Extension\FCL.Extension.csproj", "{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMapperSample", "..\..\TechnicalSample\AutoMapperSample\AutoMapperSample.csproj", "{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,16 +21,11 @@ Global
 		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66B558CE-6B40-4E8D-B490-FEF7E43BC8E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.DawnDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.DawnDebug|Any CPU.Build.0 = Debug|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.DawnRelease|Any CPU.ActiveCfg = Release|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.DawnRelease|Any CPU.Build.0 = Release|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6F3F248-4E21-4D97-AD25-0AF5BE50B403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2594D74F-DE94-49B3-AA6D-66E611ECA6DC}
 	EndGlobalSection
 EndGlobal
