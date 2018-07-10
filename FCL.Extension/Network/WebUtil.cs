@@ -1,4 +1,5 @@
 ﻿using FCL.Network.Exceptions;
+using FCL.Network.Formatters;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,16 +21,18 @@ namespace FCL.Network
 
     public class WebUtil
     {
-        public static void SendRequest<IT>(string url, HttpMethod method, IT body, IDictionary<string, string> headers = null) where IT : class
+        public static void SendRequest<IT>(string url, HttpMethod method, IT body, IDictionary<string, string> headers = null, ContentType requestBodyType = ContentType.Json, ContentType responseBodyType = ContentType.Json) where IT : class
         {
-            InternalSendRequest<IT>(url, method, body, headers);
+            var requestFormatter = Formatter.GetFormatter(requestBodyType);
+            InternalSendRequest(url, method, requestFormatter.Serialize(body), requestBodyType.ToMimeTypeString(), responseBodyType.ToMimeTypeString(), headers);
         }
 
-        public static OT SendRequest<IT, OT>(string url, HttpMethod method, IT body, IDictionary<string, string> headers = null)
+        public static OT SendRequest<IT, OT>(string url, HttpMethod method, IT body, IDictionary<string, string> headers = null, ContentType requestBodyType = ContentType.Json, ContentType responseBodyType = ContentType.Json)
                 where IT : class
                 where OT : class
         {
-            var response = InternalSendRequest<IT>(url, method, body, headers);
+            var requestFormatter = Formatter.GetFormatter(requestBodyType);
+            var response = InternalSendRequest(url, method, requestFormatter.Serialize<IT>(body), requestBodyType.ToMimeTypeString(), responseBodyType.ToMimeTypeString(), headers);
             var respStream = response.GetResponseStream();
             if (respStream == null)
             {
@@ -39,16 +42,17 @@ namespace FCL.Network
             var streamReader = new StreamReader(respStream);
             string respText = streamReader.ReadToEnd();
 
-            return JsonConvert.DeserializeObject<OT>(respText);
+            var responseFormatter = Formatter.GetFormatter(responseBodyType);
+            return responseFormatter.Deserialize<OT>(respText);
         }
 
-        private static HttpWebResponse InternalSendRequest<IT>(string url, HttpMethod method, IT body, IDictionary<string, string> headers) where IT : class
+        private static HttpWebResponse InternalSendRequest(string url, HttpMethod method, string body, string requestBodyType, string responseBodyType, IDictionary<string, string> headers)
         {
             // Send the task to Task Scheduler.
             var taskRequest = WebRequest.CreateHttp(url);
             taskRequest.Method = method.ToString();
-            taskRequest.ContentType = "application/json";
-            taskRequest.Accept = "application/json";
+            taskRequest.ContentType = requestBodyType;
+            taskRequest.Accept = responseBodyType;
             if (headers != null)
             {
                 foreach (var kvp in headers)
@@ -59,11 +63,11 @@ namespace FCL.Network
 
             if (body != null)
             {
-                string json = JsonConvert.SerializeObject(body, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
+                //string json = JsonConvert.SerializeObject(body, new JsonSerializerSettings() { TypeNameHandling = TypeNameHandling.Auto });
                 Stream requestStream = taskRequest.GetRequestStream();
                 using (var requestWriter = new StreamWriter(requestStream))
                 {
-                    requestWriter.Write(json);
+                    requestWriter.Write(body);
                     requestWriter.Flush();
                 }
             }

@@ -11,7 +11,7 @@ namespace FCL.Extentsion.Reflection
     public static class AssemblyExtension
     {
         /// <summary>
-        /// Gets the the directory path in which current executing assembly(this extension assembly) is placed.
+        /// Gets the the directory path in which current executing assembly(this extension assembly) is placed.(including splash \)
         /// </summary>
         /// <returns></returns>
         public static string GetWorkingDirectory()
@@ -21,7 +21,7 @@ namespace FCL.Extentsion.Reflection
 
         public static string GetAssemblyDirectory(this Assembly assembly)
         {
-            return Path.GetDirectoryName(new Uri(assembly.CodeBase).AbsolutePath);
+            return Path.GetDirectoryName(new Uri(assembly.CodeBase).AbsolutePath) + "\\";
         }
     }
 }
